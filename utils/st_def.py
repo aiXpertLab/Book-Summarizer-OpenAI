@@ -14,8 +14,7 @@ def st_sidebar():
     return openai_api_key
 
 def st_main_contents():
-        st.image("./data/images/NLP-Pipeline.png")
-        st.image("./data/images/NLP-Pipeline-GIF.gif")
+        st.image("./data/images/zhang.gif")
         # main_contents="""
         #     ### 🚀 Bridge the Gap: Chatbots for Every Store 🍨
         #     Tired of missing out on sales due to limited customer support options? Struggling to keep up with growing customer inquiries? Store Spark empowers you to seamlessly integrate a powerful ChatGPT-powered chatbot into your website, revolutionizing your customer service and boosting engagement. No coding required! No modifications for current site needed!
@@ -62,11 +61,11 @@ A **better strategy** will be to split it on the basis of paragraphs. However, i
 
 We will store each page in a list and then summarize it.
     """)    
-    # st.image("./data/images/textcleaning.png")
+    st.image("./data/images/book.png")
 
-def st_feature_engineering():
-    st.markdown("Feature engineering is the process of transforming selected features in a dataset to create certain patterns, provide insight, and improve understanding of the data. This will eventually improve the accuracy of the model when trained with the data.")
-    st.image("./data/images/featureengineering.png")
+def st_summary():
+    st.markdown("Now we will start prompting. This is a matter of experiment to figure out the best prompt. However, there are a few basic guidelines on how to do it efficiently. In some upcoming articles, we will discuss the art of prompting in more detail. You can use the prompt for now, which has worked well for me. ")
+    # st.image("./data/images/featureengineering.png")
 
 def st_case_study():
         st.image("./data/images/NLP-Pipeline.png")
