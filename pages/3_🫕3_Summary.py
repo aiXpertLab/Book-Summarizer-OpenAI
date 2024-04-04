@@ -29,14 +29,6 @@ def combine_chunks(summaries):
     if len(chunks) == 0:        chunks.append(summary)
     return chunks
 
-
-def mqain():
-        for i in range(len(text)):
-            sum_page = ut_openai.aichat(openai_api_key=openai_api_key, messages = [{"role": "user",   "content": prompt},])
-            summaries_of_summaries.append(sum_page)
-            time.sleep(20)  #You can query the model only 3 times in a minute for free, so we need to put some delay
-        st.write("1-----------------" + summaries_of_summaries)
-        
         
 def main():
     if not init(): return
@@ -75,16 +67,13 @@ def main():
         iterations += 1
 
     # summarize last chunk
-    st.write("Summarizing last chunk...")
-    final_summary = ut_openai.aichat(openai_api_key=openai_api_key, messages = [{"role": "user",   "content": combined_summaries[0]},])
+    
+    with st.spinner("Summarizing last chunk..."):
+        final_summary = ut_openai.aichat(openai_api_key=openai_api_key, messages = [{"role": "user",   "content": combined_summaries[0]},])
     st.header("Final Summary")
     st.write(final_summary)
     st.success("🚨Cheers!")
 
-    # st.header("Writing summaries to file...")
-    # # print summaries_of_summaries to file
-    # with open("./data/output.txt", "w", encoding="utf-8") as file:
-    #     file.write(final_summary)
 
 if __name__ == "__main__":
     main()
