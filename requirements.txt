@@ -2,3 +2,7 @@ streamlit
 streamlit_extras
 openai
 tenacity
+PyPDF2
+os
+time
+pandas
