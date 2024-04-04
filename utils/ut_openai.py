@@ -12,7 +12,7 @@ def aichat(messages, openai_api_key):
             # stream=True,
             # max_tokens=2000
         )
-        return response
+        return response.choices[0].message.content
     except Exception as e:
         print("Unable to generate ChatCompletion response")
         print(f"Exception: {e}")

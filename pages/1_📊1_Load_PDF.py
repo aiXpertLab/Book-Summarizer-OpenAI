@@ -10,6 +10,6 @@ import openai, PyPDF2, os, time, pandas as pd
 if pdf1:
     pdfReader = PyPDF2.PdfReader(pdf1)
     if 'pdfreader' not in st.session_state:   st.session_state['pdfreader'] = pdfReader
-    st.markdown(" has loaded.")
+    st.success(" has loaded.")
 else:
-    st.markdown("waiting for loading ...")
+    st.info("waiting for loading ...")

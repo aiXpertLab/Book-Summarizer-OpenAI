@@ -7,19 +7,19 @@ st_read_pdf()
 import openai, PyPDF2, os, time, pandas as pd
 
 if 'pdfreader' not in st.session_state:   
-    st.info('Load PDF before continue ... ')
+    st.error('Load PDF before continue ... ')
 else:
-    text=[]
+    page_text=[]     #array for page
     summary=' '
     pr = st.session_state['pdfreader']
     with st.spinner('Loading files...'):
         for i in range(0,len(pr.pages)):
             # creating a page object
-            pageObj = pr.pages[i].extract_text()
-            pageObj= pageObj.replace('\t\r','')
-            pageObj= pageObj.replace('\xa0','')
+            pageObj = pr.pages[i].extract_text()    # extract one page's text
+            pageObj= pageObj.replace('\t\r','')     # tab, enter
+            pageObj= pageObj.replace('\xa0','')     # non-breaking spaces
             # extracting text from page
-            text.append(pageObj)
+            page_text.append(pageObj)                    # the whole pdf --> txt
             
-    st.session_state['txtfrompdf'] = text
-    st.write(text)
+    st.session_state['page_text'] = page_text
+    st.write(page_text)
