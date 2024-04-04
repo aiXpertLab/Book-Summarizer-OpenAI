@@ -9,7 +9,7 @@ pdf1 = st.file_uploader('Upload your PDF Document', type='pdf')
 #-----------------------------------------------
 if pdf1:
     pdfReader = PyPDF2.PdfReader(pdf1)
-    if 'pdfreader' not in st.session_state:   st.session_state['pdfreader'] = pdfReader
+    st.session_state['pdfreader'] = pdfReader
     st.success(" has loaded.")
 else:
     st.info("waiting for loading ...")
